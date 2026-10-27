@@ -1,0 +1,141 @@
+% !TeX program = lualatex
+% One-page CV (English) – compile with: lualatex antonrechenauer_onepage_cv.tex
+%                                  (or: latexmk -lualatex antonrechenauer_onepage_cv.tex)
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\setmainfont{Lato}[
+  UprightFont    = * Regular,
+  BoldFont       = * Bold,
+  ItalicFont     = * Italic,
+  BoldItalicFont = * Bold Italic,
+  FontFace       = {sb}{n}{* Semibold},
+  Numbers        = Lining]
+\newcommand*{\semibold}{\fontseries{sb}\selectfont}
+
+\usepackage[a4paper,top=1.2cm,bottom=1.0cm,left=1.6cm,right=1.6cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F5F8B}
+\definecolor{muted}{HTML}{5A6270}
+\definecolor{rule}{HTML}{C9D3DD}
+
+\hypersetup{
+  pdftitle   = {Anton Rechenauer -- CV},
+  pdfauthor  = {Anton Rechenauer},
+  pdfsubject = {Curriculum Vitae},
+  pdflang    = {en-GB}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.03}
+
+% section headings: small caps-like label with a thin rule
+\titleformat{\section}
+  {\color{accent}\semibold\large}
+  {}{0pt}
+  {\MakeUppercase}
+  [\vspace{1pt}{\color{rule}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{8pt}{3pt}
+
+\setlist[itemize]{leftmargin=1.1em, itemsep=0.5pt, topsep=1.5pt, parsep=0pt,
+                  label={\color{accent}\textbullet}}
+
+% \job{title}{organisation, place}{dates}
+\newcommand*{\job}[3]{%
+  \par\addvspace{4pt}%
+  {\semibold #1}\,{\color{muted}\,|\,\,#2}\hfill{\color{muted}\small #3}\par}
+
+% \skill{label}{content}
+\newcommand*{\skill}[2]{{\semibold #1} & #2 \\[1.5pt]}
+
+\begin{document}
+
+% ---------------------------------------------------------------- header
+{\fontsize{26}{28}\selectfont\semibold Anton Rechenauer}\par
+\vspace{3pt}
+{\large\color{accent} Senior IT Infrastructure \& Project Lead}\par
+\vspace{5pt}
+{\small\color{muted}
+  Regensburg, Germany
+  \enspace·\enspace +49~1525~3612827
+  \enspace·\enspace \href{mailto:antonrechenauer@gmail.com}{antonrechenauer@gmail.com}
+  \enspace·\enspace \href{https://www.linkedin.com/in/antonrechenauer}{linkedin.com/in/antonrechenauer}}\par
+
+% ---------------------------------------------------------------- profile
+\section{Profile}
+Mathematician (Diplom) with 25+ years in IT, spanning software development, large-scale project
+management and, most recently, infrastructure and OT network administration in a refinery
+environment. Led scheduling for a 100M refinery turnaround delivered on time and on budget.
+Comfortable bridging engineering, IT and management -- from switch CLI and SQL to
+requirements, audits and stakeholder reporting.
+
+% ---------------------------------------------------------------- skills
+\section{Core Skills}
+\begin{tabularx}{\linewidth}{@{}p{3.3cm}X@{}}
+\skill{Infrastructure}{VMware vSphere, Hyper-V, Veeam, Active Directory, WSUS, server hardware (iLO/iDRAC), RAID/storage}
+\skill{Networks \& OT}{Switch configuration (Cisco, Aruba, HPE IMC), VLANs, firewalls (FortiGate, Palo Alto), monitoring (Orion NPM, Claroty CTD), IT/OT/DCS}
+\skill{Data \& Development}{SQL Server, PostgreSQL, Python, Scala, Java, .NET, VBA, ETL tooling, Git}
+\skill{Project Management}{Primavera P6, MS Project, turnaround planning, requirements engineering, SAP/Fiori key user, Jira, DOORS}
+\end{tabularx}
+
+% ---------------------------------------------------------------- experience
+\section{Experience}
+
+\job{IT Administrator \& IT Projects}{LyondellBasell, Münchsmünster refinery}{2022 -- 2026}
+\begin{itemize}
+  \item Administered the site's process control network (PCN): Active Directory, vSphere, Hyper-V, Veeam, SQL Server.
+  \item Configured and managed switches and firewalls (FortiGate, Palo Alto); set up network monitoring with Orion NPM and Claroty CTD.
+  \item Led hardware and software projects from requirements through implementation.
+\end{itemize}
+
+\job{Lead Scheduler \& IT Consultant}{LyondellBasell, Münchsmünster refinery}{2018 -- 2022}
+\begin{itemize}
+  \item Lead scheduler for the 2021 plant turnaround (TA2021) -- a 100M project completed on time and on budget.
+  \item Owned Primavera planning, reporting and data interfaces; coordinated planners, resources, constraints and master data.
+  \item Automated workflows in Python, administered PostgreSQL, acted as SAP/Fiori key user; represented planning in audits and reviews.
+\end{itemize}
+
+\job{Project Lead \& Senior Developer}{K-Tronik for e.solutions, Ingolstadt}{2016 -- 2018}
+\begin{itemize}
+  \item Led the navigation module of an automotive infotainment unit for Asian markets (ARM, Linux, QNX, C/C++).
+  \item Tracked supplier and OEM deliverables, ran workshops and architecture reviews, managed specifications in DOORS and Jira.
+\end{itemize}
+
+\job{IT \& Project Consultant}{Nigeno AG at Ruhr Oel / LyondellBasell}{2008 -- 2009, 2012 -- 2015}
+\begin{itemize}
+  \item Project management, controlling and IT services for the TA2008 and TA2015 refinery turnarounds.
+  \item Built an ETL tool importing about 100 heterogeneous sources (Excel, Primavera XER, MS Project) into SQL Server, and a generator producing about 40,000 linked HTML pages of project information.
+\end{itemize}
+
+\job{Teacher, Mathematics \& Physics}{Albertus-Magnus-Gymnasium, Regensburg}{2010 -- 2012}
+
+\job{Co-founder, Executive Board \& Lead Developer}{Nigeno AG, Regensburg}{2000 -- 2008}
+\begin{itemize}
+  \item Co-founded the company; lead developer of web and desktop applications (PHP/MySQL, J2EE/Postgres, .NET/SQL Server).
+  \item Wrote tender and performance specifications for IT projects; Linux server administration.
+  \item IHK examiner (Certified IT Systems Manager) and lecturer in software engineering, 2005 -- 2008.
+\end{itemize}
+
+% ---------------------------------------------------------------- education
+\section{Education}
+\job{Diplom in Mathematics, grade ``very good''}{University of Regensburg}{1992 -- 1998}
+Graduate studies at Brandeis University, USA (DAAD scholarship, 1996 -- 1997);
+research associate and doctoral studies in Regensburg (1997 -- 2000); publications in commutative algebra, most recently in \emph{Semigroup Forum} (2018).
+Earlier: vocational training as an industrial clerk (IHK).
+
+% ---------------------------------------------------------------- learning / languages
+\section{Further Learning \& Languages}
+\begin{tabularx}{\linewidth}{@{}p{3.3cm}X@{}}
+\skill{Continuous learning}{79 completed MOOCs with certificates, incl.\ Coursera specializations in Deep Learning (deeplearning.ai), Google Cloud ML Engineer, Practical Data Science (AWS) and Functional Programming in Scala}
+\skill{Languages}{German (native), English (fluent)}
+\end{tabularx}
+
+\end{document}

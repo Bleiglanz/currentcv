@@ -1,0 +1,242 @@
+% !TeX program = lualatex
+% Lebenslauf (ausführlich) – kompilieren mit: lualatex longcv.tex  (oder: latexmk -lualatex longcv.tex)
+% basiert auf der moderncv-Vorlage von Xavier Danaux (LPPL 1.3c)
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% moderncv-Design
+% Symbole brauchen fontawesome5 + academicons (Debian/Ubuntu: texlive-fonts-extra);
+% fehlen sie, werden stattdessen Buchstaben als Kennzeichnung verwendet.
+\IfFileExists{fontawesome5.sty}
+  {\moderncvstyle{classic}}
+  {\moderncvstyle[nosymbols]{classic}}
+\moderncvcolor{blue}
+
+% Sprache und Schriften (LuaLaTeX: kein inputenc/fontenc nötig)
+\usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\usepackage[autostyle]{csquotes}
+
+% Seitenränder
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}
+
+% persönliche Daten
+\name{Anton}{Rechenauer}
+\title{Lebenslauf}
+\address{Silberne-Fisch-Gasse 16}{93047 Regensburg}{Deutschland}
+\phone[mobile]{+49~1525~3612827}
+\phone[fixed]{+49~941~5676926}
+\email{antonrechenauer@gmail.com}
+\IfFileExists{minibild.jpeg}{\photo[64pt][0.4pt]{minibild.jpeg}}{}
+
+\AtEndPreamble{%
+  \hypersetup{
+    pdfsubject  = {Lebenslauf von Anton Rechenauer},
+    pdfkeywords = {Anton Rechenauer, Lebenslauf, CV}}}
+
+\begin{document}
+\makecvtitle
+
+\section{Ausbildung}
+\cventry{1981--1985}{Mittlere Reife}{Realschule}{Rosenheim}{}{Notendurchschnitt: 2,35}
+\cventry{1985--1988}{Industriekaufmann (IHK)}{Sengewald Klinikprodukte GmbH}{Rosenheim}{Berufsausbildung}{Notendurchschnitt: 1,75}
+\cventry{1988}{Produktmanager}{Sengewald Klinikprodukte GmbH}{Rosenheim}{}{Produktionsplanung und Logistik}
+\cventry{1988--1990}{Fachabitur}{Fachoberschule}{Rosenheim}{}{Notendurchschnitt: 1,3}
+\cventry{1990--1991}{Vordiplom}{Fachhochschule}{Regensburg}{Mathematik}{Notendurchschnitt: 1,3}
+\cventry{1991--1992}{Zivildienst}{Caritasheim}{Schonstett}{}{}
+\cventry{1992--1998}{Diplom}{Universität}{Regensburg}{Mathematik, drei Jahre studentische Hilfskraft}{Abschlussnote: sehr gut}
+\cventry{1996--1997}{ohne Abschluss}{Brandeis University}{Waltham, MA, USA}{Internationales DAAD-Stipendium, Graduate School}{Noten: A A B+ A A A A CR}
+\cventry{1997--2000}{ohne Abschluss}{Universität}{Regensburg}{Wissenschaftlicher Mitarbeiter}{Promotionsstudium}
+
+\section{Diplomarbeit und Veröffentlichungen}
+\cvitem{1998}{\textit{Artin-Approximation und Reduktion mod~$p$} (Diplomarbeit)}
+\cvitem{2001}{Hübl, Reinhold; Rechenauer, Anton: \textit{Valuations of ideals, evolutions and the vanishing of cohomology groups.} In: Geometric and Combinatorial Aspects of Commutative Algebra (Herzog/Restuccia, Hrsg.), S.~245--258.}
+\cvitem{2018}{Hellus, Michael; Waldi, Rolf; Rechenauer, Anton: \textit{Note on a theorem of Eliahou.} In: Semigroup Forum 97 (2018), S.~64. \href{https://doi.org/10.1007/s00233-018-9923-8}{doi:10.1007/s00233-018-9923-8}}
+
+\section{Berufserfahrung}
+\cventry{2000--2008}{Vorstand, Aufsichtsrat}{Nigeno AG}{Regensburg}{}{%
+  Mitgründer dieser kleinen Aktiengesellschaft
+  \begin{itemize}
+    \item Lead Developer / Webanwendung\newline
+          Linux, PHP, MySQL, Apache, PDFLib, SecOVID
+    \item Lead Developer / Webanwendung\newline
+          Linux, Tomcat/JBoss, J2EE, Servlets, JSP, Postgres
+    \item Lead Developer / Software\newline
+          .NET 2.0, Windows Forms, MS SQL Server, Gantt-Diagramme, Crystal Reports, MS Office
+    \item Serveradministration\newline
+          Linux (Debian), SSH
+    \item Requirements Engineering\newline
+          Erstellung von Lasten- und Pflichtenheften in mehreren IT-Projekten
+  \end{itemize}}
+
+\medskip
+\cventry{2005--2008}{IHK}{Prüfungsausschuss}{Regensburg}{}{Mitglied im IHK-Prüfungsausschuss \textit{Geprüfter IT-Systemmanager} der IHK Regensburg, Dozent für Softwaretechnik}
+
+\medskip
+\cventry{2008--2009}{Berater, Nigeno AG}{Ruhr Oel GmbH}{Raffinerie Münchsmünster}{}{%
+  Vorbereitung, Projektmanagement und IT-Dienstleistungen für den Anlagenstillstand TA2008\newline
+  Werkzeuge: MS SQL Server, Access VBA, .NET-Softwareentwicklung, MS Project, Office, MS Analysis Services (OLAP), Java-Softwareentwicklung, SVN, Eclipse}
+
+\medskip
+\cventry{2010--2012}{Lehrer}{Albertus-Magnus-Gymnasium}{Regensburg}{}{Lehrer für Mathematik/Physik}
+
+\medskip
+\cventry{2012--2015}{Berater, Nigeno AG}{LyondellBasell}{Raffinerie Münchsmünster}{}{%
+  Vorbereitung, Projektmanagement, Datenbanken, Controlling und IT-Dienstleistungen für den Anlagenstillstand TA2015\newline
+  Werkzeuge: MS SQL Server, Access VBA, .NET-Softwareentwicklung, MS Project, Office, MS Analysis Services (OLAP), VMware, Scala-Softwareentwicklung, Primavera, SAP GUI Scripting, Administrator SharePoint-Site, HTML/CSS, Git, IntelliJ IDEA}
+
+\medskip
+\cventry{2016--2018}{Projektmanagement}{K-Tronik, e.solutions}{Ingolstadt}{}{%
+  Senior-Entwickler und Projektleiter: Navigationsmodul einer Infotainment-Einheit für asiatische Märkte. Steuerung und Tracking der Lieferanten- und OEM-Aktivitäten, Vorbereitung von Workshops, Tracking von FOs, Mitarbeit an spezifikationsbezogenen Aufgaben, Organisation von Architektur-Reviews.\newline
+  Technologie-Stack (ohne eigene Entwicklung): DOORS/RIF, Jira, YouTrack, SharePoint, Perforce; auf dem Zielsystem: ARM, Linux, QNX, C/C++, Java, HTML5, Angular~2}
+
+\medskip
+\cventry{2018--2022}{Lead Scheduler \& IT-Beratung}{LyondellBasell}{Raffinerie Münchsmünster}{}{%
+  Lead Scheduler für den Anlagenstillstand TA2021: Primavera, Primavera-Reporting, Primavera-Im- und -Exporte, Automatisierung, SAP/Fiori-Key-User, Postgres-DB-Administration, Tooling, Softwareentwicklung in Python u.\,v.\,m. Organisation von Planern, Ressourcen, Randbedingungen und Stammdaten.
+  Singen und Tanzen in Audits und internen Reviews. Ein 100-Millionen-Projekt, abgeschlossen in Zeit und Budget.}
+
+\medskip
+\cventry{2022--2026}{IT-Administration, IT-Projekte}{LyondellBasell}{Raffinerie Münchsmünster}{}{%
+  Administration und Projektmanagement für das PCN (Prozessleitnetz) des Standorts: Netzwerk, Active Directory, vSphere, Veeam, Hyper-V,
+  Switch-Konfiguration und -Management (HPE IMC), Netzwerk-Monitoring (Orion NPM, Claroty CTD),
+  Installation und Konfiguration von Firewalls (FortiGate, Palo Alto),
+  SQL-Server-Administration, diverse Projekte rund um neue Hard- und Softwarelösungen, Anforderungen und Umsetzung.}
+
+\section{Sprachen}
+\cvitemwithcomment{Deutsch}{Muttersprache}{}
+\cvitemwithcomment{Englisch}{fließend}{}
+
+\section{Profile}
+\cvitem{LinkedIn}{\url{https://www.linkedin.com/in/antonrechenauer}}
+\cvitem{Xing}{\url{https://www.xing.com/profile/Anton_Rechenauer}}
+
+\section{Weiterbildung / MOOCs}
+\cvitem{}{\small\emph{Zertifikate verlinkt unter \url{https://www.linkedin.com/in/antonrechenauer}}}
+\medskip
+
+\cventry{Coursera}{Spezialisierung (3 Kurse): deeplearning.ai -- Practical Data Science}{}{Mai 2022}{}{Amazon-AWS-KI-Stack, SageMaker, BERT}
+\cventry{Coursera}{Spezialisierung (9 Kurse): Preparing for Google Cloud Certification: Machine Learning Engineer}{}{März 2022}{}{Google-KI-Stack, TensorFlow, MLOps}
+\cventry{Coursera}{Spezialisierung (5 Kurse): deeplearning.ai -- Deep Learning}{}{April 2022}{}{Convolutional Neural Networks, Sequence Models, Structuring Machine Learning Projects, Neural Networks and Deep Learning}
+\cventry{Coursera}{Introduction to Big Data}{}{Januar 2016}{Ergebnis: 98,5\,\%}{Hadoop, HDFS, Cloudera}
+\cventry{Coursera}{The Data Scientist’s Toolbox}{}{Januar 2016}{Ergebnis: 92,0\,\%}{RStudio, R}
+\cventry{Coursera}{R Programming}{}{Februar 2016}{Ergebnis: 97,0\,\%}{RStudio, R}
+\cventry{Coursera}{Getting and Cleaning Data}{}{Februar 2016}{Ergebnis: 100,0\,\%}{RStudio, R}
+\cventry{Coursera}{Introduction to Big Data Analytics}{}{März 2016}{Ergebnis: 95,8\,\%}{HBase, Hive, Pig, Splunk, Spark}
+\cventry{Coursera}{Machine Learning Foundations: A Case Study Approach}{}{März 2016}{Ergebnis: 98,7\,\%}{Python, IPython Notebook \& GraphLab Create, Regression, Klassifikation, Clustering, Retrieval, Empfehlungssysteme}
+\cventry{Coursera}{Exploratory Data Analysis}{}{März 2016}{Ergebnis: 96,0\,\%}{RStudio, R, k-Means-Clustering}
+\cventry{Coursera}{Machine Learning}{}{April 2016}{Ergebnis: 96,5\,\%}{Octave/MATLAB, der berühmte Kurs von Andrew Ng}
+\cventry{Coursera}{Machine Learning With Big Data}{}{März 2016}{Ergebnis: 94,8\,\%}{KNIME, Klassifikation, Naive Bayes, Clustering}
+\cventry{edX}{Mastering Quantum Mechanics Part~1: Wave Mechanics}{}{April 2016}{Ergebnis: 99\,\%}{Lineare Algebra, Operatoren, Spin~1/2}
+\cventry{Stanford}{Statistical Learning}{}{April 2016}{Ergebnis: 53\,\%}{nach \emph{An Introduction to Statistical Learning, with Applications in R}}
+\cventry{Coursera}{Graph Analytics for Big Data}{}{April 2016}{Ergebnis: 90,0\,\%}{Neo4j, GraphX, Graphalgorithmen}
+\cventry{FutureLearn}{The Mind is Flat: the Shocking Shallowness of Human Psychology}{}{Mai 2016}{Ergebnis: 90\,\%}{Ist geistige Tiefe eine Illusion?}
+\cventry{Coursera}{Introduction to Philosophy}{}{Mai 2016}{Ergebnis: 84,8\,\%}{Hauptforschungsgebiete der zeitgenössischen Philosophie}
+\cventry{edX}{Mastering Quantum Mechanics Part~2: Quantum Dynamics}{}{Mai 2016}{Ergebnis: 96\,\%}{Kohärente Zustände, gequetschte Zustände, NMR}
+\cventry{Coursera}{Algorithmic Toolbox}{}{Mai 2016}{Ergebnis: 84,1\,\%}{Scala, Greedy-Algorithmen, Divide and Conquer, dynamische Programmierung}
+\cventry{Coursera}{Parallel Programming (Scala)}{}{Juni 2016}{Ergebnis: 87,5\,\%}{Monte Carlo, paralleles Mergesort, Reduce und Scan, Barnes-Hut-Algorithmus}
+\cventry{Coursera}{Functional Programming Principles in Scala}{}{Juni 2016}{Ergebnis: 100\,\%}{Scala IDE, Funktionen höherer Ordnung, Daten und Abstraktion}
+\cventry{edX}{Mastering Quantum Mechanics Part~3: Entanglement and Angular Momentum}{}{Juni 2016}{Ergebnis: 93\,\%}{Mehrteilchenzustände, Tensorprodukte, Clebsch-Gordan}
+\cventry{Coursera}{Data Structures}{}{Juni 2016}{Ergebnis: 75,3\,\%}{Heaps, Disjoint Sets, Hashing, AVL-Bäume, Splay-Bäume}
+\cventry{edX}{Philosophy and Critical Thinking}{}{Juni 2016}{Ergebnis: 80\,\%}{Einführung in philosophisches und kritisches Denken}
+\cventry{edX}{Introduction to Apache Spark}{}{Juli 2016}{Ergebnis: 100\,\%}{Python, Spark, Databricks, Spark SQL}
+\cventry{Coursera}{Functional Program Design in Scala}{}{Juli 2016}{Ergebnis: 100\,\%}{For-Expressions und Monaden, Lazy Evaluation, Zustand, Futures}
+\cventry{edX}{Introduction to OpenStack}{}{Oktober 2016}{Ergebnis: 93\,\%}{Grundkonfiguration, Administration und Deployment auf OpenStack}
+\cventry{FutureLearn}{Functional Programming in Haskell}{}{Oktober 2016}{Ergebnis: 100\,\%}{Datentypen, ADTs, Laziness, Typklassen, Parser, Monaden}
+\cventry{Coursera}{Fundamentals of GIS}{}{November 2016}{Ergebnis: 95,7\,\%}{ArcGIS, Kartenerstellung, Abrufen und Teilen von Daten}
+\cventry{Coursera}{C++ For C Programmers, Part~A}{}{November 2016}{Ergebnis: 92,5\,\%}{Dijkstra und minimaler Spannbaum in modernem C++ implementiert}
+\cventry{FutureLearn}{Functional Programming in Erlang}{}{Februar 2017}{Ergebnis: 90\,\%}{BEAM, Erlang-Shell, Prozesse, Funktionen höherer Ordnung}
+\cventry{Coursera}{Big Data Analysis with Scala and Spark}{}{April 2017}{Ergebnis: 100\,\%}{RDDs, Reduktionsoperatoren, DataFrames und Datasets}
+\cventry{Coursera}{Functional Programming in Scala Capstone}{}{April 2017}{Ergebnis: 80\,\%}{Abschlussprojekt der Scala-Spezialisierung (5 Kurse)}
+\cventry{FutureLearn}{Concurrent Programming in Erlang}{}{April 2017}{Ergebnis: 90\,\%}{OTP, Multicore, Skalierung, Supervisor, GenServer}
+
+\end{document}
+
+
+% ---------------------------------------------------------------------------
+% Archiv: wird nicht gesetzt (steht hinter \end{document}).
+% Bei Bedarf vor \end{document} verschieben.
+% ---------------------------------------------------------------------------
+
+\section{Projekte im JVM-Umfeld}
+
+\cventry{2004--2006}{GaboSys Warenwirtschaftssystem}{18 Monate}{}{}{%
+  Entwicklung eines Warenwirtschaftssystems für ein Unternehmen aus dem produzierenden Gewerbe.
+  Eine für die damalige Zeit typische J2EE-Anwendung.\newline
+  Werkzeuge:
+  \begin{itemize}
+    \item J2EE 2.x
+    \item JBoss Application Server
+    \item reines Servlet-Frontend (kein JSP)
+    \item Export/Import von Excel-Dateien
+    \item EJB für den Datenbankzugriff
+    \item Entwurf des SQL-Schemas für das Backend (Postgres)
+  \end{itemize}}
+
+\cventry{2005}{Betreuung einer Diplomarbeit}{8 Monate}{}{}{%
+  Betreuer der Diplomarbeit
+  \textit{Konzeption und Implementierung eines Prototyps für eine Anwendung zum Generieren von Java-Quellcode für Enterprise Java Beans aus XML-Beschreibungsdaten}, Harald Dietl, FH für Technik und Wirtschaft Berlin, Studiengang Angewandte Informatik (eingereicht am 23.\,4.\,2005).
+  Der Student implementierte ein Werkzeug, das in etwa XDoclet entspricht.\newline
+  Werkzeuge:
+  \begin{itemize}
+    \item J2EE 2.x
+    \item ein J2EE-Enterprise-Server (welcher, weiß ich nicht mehr)
+    \item NetBeans IDE, Velocity, Ant, SAX
+  \end{itemize}}
+
+\cventry{2009}{Tooling}{8 Monate}{}{}{%
+  Entwicklung von Werkzeugen für verschiedenste ETL-Zwecke unter verschiedensten Rahmenbedingungen, überwiegend für Import/Export in Backend-Datenbanken.\newline
+  Werkzeuge:
+  \begin{itemize}
+    \item Java (Konsolenanwendungen)
+    \item POI, XOM (die klassische Bibliothek von Elliotte Rusty Harold)
+    \item JAXB, SAX, XML Schema
+  \end{itemize}}
+
+\cventry{2010}{Abrechnungsstatistik}{5 Monate}{}{}{%
+  Ein klassisches eigenständiges Windows-Programm in Java zur Erstellung von Berichten aus einem (Alt-)Abrechnungssystem.\newline
+  Werkzeuge:
+  \begin{itemize}
+    \item Analyse der bestehenden Datenbankstruktur
+    \item Swing als UI-Technologie
+    \item Backend: MySQL-Datenbank
+    \item Jasper Reports
+  \end{itemize}}
+
+\cventry{2013}{EquipmentDB}{4 Monate}{}{}{%
+  Eine kleine CRUD-Anwendung, ein Web-Client für vier verschiedene Datenbanken.\newline
+  Werkzeuge:
+  \begin{itemize}
+    \item Scala 2.10
+    \item Play Framework 2.1
+    \item Slick
+    \item AngularJS (minimal, nur zum Filtern und Sortieren)
+  \end{itemize}}
+
+\cventry{2014}{PoC JEE7/JSF}{3 Monate}{}{}{%
+  Ein Proof of Concept (mit JEE7), um das moderne JEE-Ökosystem für eine typische CRUD-Anwendung zu evaluieren.\newline
+  Werkzeuge:
+  \begin{itemize}
+    \item JEE7
+    \item Java 7
+    \item Microsoft SQL Server
+    \item JSF
+  \end{itemize}}
+
+\cventry{2013--2015}{DTS/ETL-Werkzeug}{12 Monate}{}{}{%
+  Eigenständige Software: prüft, bearbeitet und importiert schließlich rund 100 verschiedene Dateien in
+  unterschiedlichen Formaten (Excel, Primavera .XER, SQLite, CSV, MS Project) in eine SQL-Datenbank.\newline
+  Details:
+  \begin{itemize}
+    \item Scala 2.10 / Java
+    \item Apache POI, MPXJ, JPA, Slick
+  \end{itemize}}
+
+\cventry{2014--2015}{Generator für statische Websites}{12 Monate}{}{}{%
+  Eigenständige Software, die regelmäßig alle verfügbaren Informationen zum Projekt TA2015 (Projekte, Teilprojekte, Termine, Bilder, Personen, Equipment, Sicherheit usw.) in $\approx 40\,000$ stark verlinkte statische HTML-Seiten umwandelt. Intern und von Kontraktoren genutzt.\newline
+  Details:
+  \begin{itemize}
+    \item Scala 2.10, Slick
+    \item massiver Einsatz regulärer Ausdrücke (um aus Freitext Hyperlinks zu erzeugen)
+    \item HTML, CSS, JavaScript, jQuery
+  \end{itemize}}
