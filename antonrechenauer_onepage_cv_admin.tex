@@ -1,0 +1,193 @@
+% !TeX program = xelatex
+% One-page CV (English), variant: network & systems administration
+% compile with: xelatex (or lualatex) antonrechenauer_onepage_cv_admin.tex
+
+\documentclass[10pt,a4paper]{article}
+\usepackage{amssymb}
+
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\setmainfont{Lato}[
+  Path           = /usr/share/fonts/truetype/lato/,
+  Extension      = .ttf,
+  UprightFont    = Lato-Regular,
+  BoldFont       = Lato-Bold,
+  ItalicFont     = Lato-Italic,
+  BoldItalicFont = Lato-BoldItalic,
+  FontFace       = {sb}{n}{Lato-Semibold},
+  FontFace       = {l}{n}{Lato-Light},
+  FontFace       = {k}{n}{Lato-Black},
+  Numbers        = Lining]
+\newcommand*{\semibold}{\fontseries{sb}\selectfont}
+\newcommand*{\light}{\fontseries{l}\selectfont}
+\newcommand*{\heavy}{\fontseries{k}\selectfont}
+
+\newlength{\bandheight}\setlength{\bandheight}{3.15cm}
+\newlength{\sidewidth}\setlength{\sidewidth}{6.3cm}
+
+\usepackage[a4paper,top=3.75cm,bottom=0.8cm,left=0.85cm,right=1.15cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{paracol}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{band}{HTML}{16222E}
+\definecolor{accent}{HTML}{1E8C8A}
+\definecolor{side}{HTML}{EEF2F4}
+\definecolor{ink}{HTML}{1C2530}
+\definecolor{muted}{HTML}{5E6A75}
+\definecolor{bandtext}{HTML}{B9C6D2}
+
+\hypersetup{
+  pdftitle   = {Anton Rechenauer -- CV (Systems \& Network Administration)},
+  pdfauthor  = {Anton Rechenauer},
+  pdfsubject = {Curriculum Vitae},
+  pdflang    = {en-GB}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.06}
+\color{ink}
+
+% ---------------------------------------------------------------- page background: header band + sidebar
+\AddToShipoutPictureBG*{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[side] (current page.north west) rectangle
+                ([xshift=\sidewidth]current page.south west);
+    \fill[band] (current page.north west) rectangle
+                ([yshift=-\bandheight]current page.north east);
+    \fill[accent] ([yshift=-\bandheight]current page.north west) rectangle
+                  ([yshift=-\bandheight-2.2pt]current page.north east);
+    \node[anchor=north west,inner sep=0pt,text width=19cm,align=left]
+      at ([xshift=0.85cm,yshift=-0.62cm]current page.north west) {%
+        {\fontsize{27}{29}\selectfont\color{white}\light Anton \heavy Rechenauer}\par
+        \vspace{4pt}
+        {\fontsize{12.5}{14}\selectfont\color{accent!55!white}\semibold
+          IT Systems \& Network Administrator\,\,{\color{bandtext}\light|}\,\,
+          {\light\color{bandtext} Infrastructure · OT Networks · Security}}\par
+        \vspace{7pt}
+        {\small\color{bandtext}
+          Regensburg, Germany
+          \enspace{\color{accent}/}\enspace +49~1525~3612827
+          \enspace{\color{accent}/}\enspace \href{mailto:antonrechenauer@gmail.com}{antonrechenauer@gmail.com}
+          \enspace{\color{accent}/}\enspace \href{https://www.linkedin.com/in/antonrechenauer}{linkedin.com/in/antonrechenauer}}};
+  \end{tikzpicture}}
+
+% ---------------------------------------------------------------- columns
+\columnratio{0.272}
+\setlength{\columnsep}{1.45cm}
+
+% sidebar heading
+\newcommand*{\sidehead}[1]{%
+  \par\addvspace{9pt}%
+  {\small\color{accent}\heavy\addfontfeatures{LetterSpace=8}\MakeUppercase{#1}}\par
+  \vspace{2pt}}
+% sidebar group: label + content
+\newcommand*{\sgroup}[2]{%
+  \par\addvspace{4.5pt}%
+  {\semibold\small #1}\par
+  {\small\color{muted}#2}\par}
+
+% main heading: accent bar + label
+\newcommand*{\mainhead}[1]{%
+  \par\addvspace{10pt}%
+  {\color{accent}\rule[-1pt]{3pt}{10pt}}\hspace{6pt}%
+  {\color{band}\heavy\addfontfeatures{LetterSpace=8}\MakeUppercase{#1}}\par
+  \vspace{4pt}}
+
+% \role{dates}{title}{organisation}
+\newcommand*{\role}[3]{%
+  \par\addvspace{6.5pt}%
+  {\footnotesize\color{accent}\semibold #1}\par
+  {\semibold\normalsize #2}\enspace{\color{muted}\small #3}\par}
+
+\setlist[itemize]{leftmargin=0.95em, itemsep=1pt, topsep=2pt, parsep=0pt,
+                  label={\color{accent}\scriptsize$\blacktriangleright$}}
+
+\begin{document}
+\begin{paracol}{2}
+\raggedright
+% ================================================================ SIDEBAR
+\sidehead{Technical Skills}
+
+\sgroup{Networking}{Switching \& VLANs, Cisco, Aruba, HPE IMC; firewalls FortiGate and Palo Alto; IT/OT/DCS network separation}
+
+\sgroup{Monitoring \& OT Security}{SolarWinds Orion NPM, Claroty CTD, Aveva/OSIsoft PI}
+
+\sgroup{Servers \& Directory}{Windows Server, Active Directory, WSUS; Linux (Debian), SCO Unix; legacy Windows Server 2008}
+
+\sgroup{Virtualisation \& Backup}{VMware vSphere, Hyper-V, Veeam; server hardware (iLO/iDRAC), RAID \& storage}
+
+\sgroup{Databases}{SQL Server, PostgreSQL, MySQL}
+
+\sgroup{Scripting \& Development}{Python, SQL, VBA/VB6, Scala, Java, .NET, Git}
+
+\sidehead{Education}
+{\semibold\small Diplom in Mathematics}\par
+{\small\color{muted}University of Regensburg, 1998 -- grade ``very good''}\par
+\vspace{3pt}
+{\small\color{muted}Graduate studies at Brandeis University, USA (DAAD, 1996 -- 97); research associate, Regensburg (1997 -- 2000)}\par
+\vspace{3pt}
+{\small\color{muted}Industrial clerk (IHK)}\par
+
+\sidehead{Further Learning}
+{\small\color{muted}79 MOOCs with certificates, incl.\ Introduction to OpenStack (edX), Google Cloud ML Engineer, Deep Learning (deeplearning.ai), Big Data with Spark}\par
+
+\sidehead{Languages}
+{\small German\hfill{\color{muted}native}}\par
+{\small English\hfill{\color{muted}fluent}}\par
+
+% ================================================================ MAIN
+\switchcolumn
+
+\mainhead{Profile}
+Systems and network administrator with 25+ years in IT. For the past four years I ran the
+process control network (PCN) of a refinery site -- directory services, virtualisation, backup,
+switching, firewalls and network monitoring in a 24/7 production environment where
+availability and segmentation are non-negotiable. Long background in Linux server and
+database administration and in software development, which I use to automate and document
+the infrastructure I operate. Used to working independently on site, from switch CLI and
+server room to audits, change requests and project delivery.
+
+\mainhead{Experience}
+
+\role{2022 -- 2026}{IT Administrator, Process Control Network}{LyondellBasell, Münchsmünster refinery}
+\begin{itemize}
+  \item Operated the site's PCN infrastructure: Active Directory, WSUS, VMware vSphere and Hyper-V hosts, Veeam backup, SQL Server.
+  \item Configured and managed switches and VLANs (Cisco, Aruba, HPE IMC); installed and configured FortiGate and Palo Alto firewalls.
+  \item Set up network monitoring and OT asset visibility with SolarWinds Orion NPM and Claroty CTD.
+  \item Kept legacy systems running alongside current infrastructure: SCO Unix, Windows Server 2008, VB6/Access applications, OSIsoft PI.
+  \item Led hardware and software projects for new infrastructure from requirements through implementation.
+\end{itemize}
+
+\role{2018 -- 2022}{Lead Scheduler \& IT Consultant}{LyondellBasell, Münchsmünster refinery}
+\begin{itemize}
+  \item Administered PostgreSQL, built data interfaces and Python automation for the planning systems; SAP/Fiori key user.
+  \item Lead scheduler for the 2021 turnaround -- a 100M project completed on time and on budget.
+\end{itemize}
+
+\role{2008 -- 2009, 2012 -- 2015}{IT \& Project Consultant}{Nigeno AG at Ruhr Oel / LyondellBasell}
+\begin{itemize}
+  \item IT services for the TA2008 and TA2015 turnarounds: SQL Server and Analysis Services, VMware, SharePoint site administration.
+  \item Built an ETL tool loading about 100 heterogeneous sources into SQL Server, and a generator for about 40,000 linked HTML pages.
+\end{itemize}
+
+\role{2016 -- 2018}{Project Lead \& Senior Developer}{K-Tronik for e.solutions, Ingolstadt}
+\begin{itemize}
+  \item Navigation module of an automotive infotainment unit (ARM, Linux, QNX); supplier and OEM coordination, architecture reviews.
+\end{itemize}
+
+\role{2010 -- 2012}{Teacher, Mathematics \& Physics}{Albertus-Magnus-Gymnasium, Regensburg}
+
+\role{2000 -- 2008}{Co-founder \& Lead Developer}{Nigeno AG, Regensburg}
+\begin{itemize}
+  \item Administered Debian Linux servers (Apache, Tomcat/JBoss, MySQL, PostgreSQL) remotely via SSH.
+  \item Lead developer of web and desktop applications (PHP, J2EE, .NET); wrote tender and performance specifications.
+  \item IHK examiner for Certified IT Systems Manager and lecturer in software engineering (2005 -- 2008).
+\end{itemize}
+
+\end{paracol}
+\end{document}
