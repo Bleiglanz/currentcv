@@ -1,0 +1,182 @@
+% !TeX program = lualatex
+% Generisches Anschreiben (Deutsch), Stelle: Systemadministrator
+% Design passend zu antonrechenauer_onepage_cv_admin.tex
+%
+% kompilieren mit Standardwerten:
+%   lualatex Anschreiben.tex
+%
+% Empfänger & Co. ohne Bearbeiten der Datei setzen (Werte auf der Kommandozeile
+% haben Vorrang vor den Standardwerten unten):
+%   lualatex -jobname=Anschreiben "\def\Firma{Muster GmbH}\def\Abteilung{Personalabteilung}\def\Ansprechpartner{Frau Erika Mustermann}\def\Anrede{Sehr geehrte Frau Mustermann,}\def\Strasse{Musterstraße 1}\def\Ort{12345 Musterstadt}\def\Referenz{IT-2026-17}\def\Quelle{auf StepStone}\input{Anschreiben.tex}"
+
+% ---------------------------------------------------------------- Parameter (Standardwerte)
+% leer lassen = Zeile bzw. Satz entfällt
+\providecommand*{\Firma}{Hallo Welt GmbH}
+\providecommand*{\Abteilung}{Personalabteilung}
+\providecommand*{\Ansprechpartner}{}                       % z.\,B. Frau Erika Mustermann
+\providecommand*{\Strasse}{Bruderwöhrdstraße 29}
+\providecommand*{\Ort}{93055 Regensburg}
+\providecommand*{\Anrede}{Sehr geehrte Damen und Herren,}  % z.\,B. Sehr geehrte Frau Mustermann,
+\providecommand*{\Stelle}{Systemadministrator (m/w/d)}
+\providecommand*{\Referenz}{}                              % Kennziffer der Ausschreibung
+\providecommand*{\Quelle}{}                                % z.\,B. auf StepStone / auf Ihrer Karriereseite
+\providecommand*{\Eintritt}{}                              % z.\,B. zum 1.~Januar 2027
+\providecommand*{\Gehalt}{}                                % z.\,B. 65.000~€ brutto jährlich
+\providecommand*{\Datum}{\today}
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\setmainfont{Lato}[
+  Path           = /usr/share/fonts/truetype/lato/,
+  Extension      = .ttf,
+  UprightFont    = Lato-Regular,
+  BoldFont       = Lato-Bold,
+  ItalicFont     = Lato-Italic,
+  BoldItalicFont = Lato-BoldItalic,
+  FontFace       = {sb}{n}{Lato-Semibold},
+  FontFace       = {l}{n}{Lato-Light},
+  FontFace       = {k}{n}{Lato-Black},
+  Numbers        = Lining]
+\newcommand*{\semibold}{\fontseries{sb}\selectfont}
+\newcommand*{\light}{\fontseries{l}\selectfont}
+\newcommand*{\heavy}{\fontseries{k}\selectfont}
+
+\newlength{\bandheight}\setlength{\bandheight}{2.75cm}
+
+\usepackage[a4paper,top=3.6cm,bottom=1.2cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{band}{HTML}{16222E}
+\definecolor{accent}{HTML}{1E8C8A}
+\definecolor{ink}{HTML}{1C2530}
+\definecolor{muted}{HTML}{5E6A75}
+\definecolor{bandtext}{HTML}{B9C6D2}
+
+\hypersetup{
+  pdftitle    = {Anton Rechenauer -- Anschreiben \Stelle},
+  pdfauthor   = {Anton Rechenauer},
+  pdfsubject  = {Bewerbung als \Stelle\ bei \Firma},
+  pdfkeywords = {Systemadministrator, Systemadministration, IT-Administrator,
+                 Netzwerkadministrator, Windows Server, Active Directory, WSUS,
+                 Patch-Management, Linux, Debian, VMware vSphere, Hyper-V,
+                 Virtualisierung, Veeam, Backup, Recovery, SQL Server, PostgreSQL,
+                 MySQL, Netzwerk, Switching, VLAN, Cisco, Aruba, Firewall, FortiGate,
+                 Palo Alto, IT-Sicherheit, OT-Security, Netzwerksegmentierung,
+                 Monitoring, SolarWinds, Claroty, Python, Automatisierung,
+                 Dokumentation, Change-Management, 24/7-Betrieb},
+  pdflang     = {de-DE}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\linespread{1.07}
+\color{ink}
+
+% ---------------------------------------------------------------- Kopfband
+\AddToShipoutPictureBG*{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[band] (current page.north west) rectangle
+                ([yshift=-\bandheight]current page.north east);
+    \fill[accent] ([yshift=-\bandheight]current page.north west) rectangle
+                  ([yshift=-\bandheight-2.2pt]current page.north east);
+    \node[anchor=north west,inner sep=0pt,text width=17cm,align=left]
+      at ([xshift=2.5cm,yshift=-0.55cm]current page.north west) {%
+        {\fontsize{24}{26}\selectfont\color{white}\light Anton \heavy Rechenauer}\par
+        \vspace{4pt}
+        {\fontsize{11.5}{13}\selectfont\color{accent!55!white}\semibold
+          IT-Systemadministrator\,\,{\color{bandtext}\light|}\,\,
+          {\light\color{bandtext} Server · Netzwerk · IT-Sicherheit}}\par
+        \vspace{6pt}
+        {\small\color{bandtext}
+          Silberne-Fisch-Gasse 16, 93047 Regensburg
+          \enspace{\color{accent}/}\enspace +49~1525~3612827
+          \enspace{\color{accent}/}\enspace \href{mailto:antonrechenauer@gmail.com}{antonrechenauer@gmail.com}}};
+  \end{tikzpicture}}
+
+% Zeile nur ausgeben, wenn der Parameter nicht leer ist
+\newcommand*{\optline}[1]{\ifdefempty{#1}{}{#1\\}}
+
+\begin{document}
+
+% ---------------------------------------------------------------- Empfänger + Datum
+{\footnotesize\color{muted}Anton Rechenauer · Silberne-Fisch-Gasse 16 · 93047 Regensburg}\par
+\vspace{2pt}
+\begin{minipage}[t]{0.6\textwidth}
+  \raggedright
+  {\semibold\Firma}\\
+  \optline{\Abteilung}%
+  \optline{\Ansprechpartner}%
+  \optline{\Strasse}%
+  \Ort
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+  \raggedleft
+  \vspace{0pt}\par
+  Regensburg, \Datum
+\end{minipage}
+
+\vspace{1.0cm}
+
+% ---------------------------------------------------------------- Betreff
+{\large\color{band}\heavy Bewerbung als \Stelle}\par
+\vspace{-0.4em}
+{\small\color{muted}%
+  \ifdefempty{\Referenz}{Systemadministration · Netzwerk · Virtualisierung · IT-Sicherheit}{Kennziffer: \Referenz}}\par
+
+\vspace{0.6em}
+
+% ---------------------------------------------------------------- Text
+\Anrede
+
+\ifdefempty{\Quelle}
+  {mit großem Interesse bewerbe ich mich bei Ihnen als \Stelle.}
+  {mit großem Interesse habe ich Ihre Stellenausschreibung \Quelle\ gelesen und bewerbe mich
+   hiermit als \Stelle.}
+Ich bringe über 25~Jahre Erfahrung in der IT mit -- zuletzt vier Jahre als IT-Administrator
+für das Prozessleitnetz (PCN) der Raffinerie von LyondellBasell in Münchsmünster. Dort habe
+ich Server, Netzwerk und Sicherheit einer 24/7-Produktionsumgebung betreut, in der
+Verfügbarkeit, Ausfallsicherheit und saubere Netzwerksegmentierung oberste Priorität haben.
+
+\textbf{Server, Virtualisierung und Backup:} Ich habe die Windows-Server-Infrastruktur mit
+Active Directory, Gruppenrichtlinien und WSUS-Patch-Management betrieben, VMware-vSphere- und
+Hyper-V-Hosts verwaltet und die Datensicherung mit Veeam (Backup \& Recovery) verantwortet.
+Hinzu kommen SQL Server, Server-Hardware mit iLO/iDRAC, RAID und Storage. Linux-Server
+(Debian) mit Apache, Tomcat, PostgreSQL und MySQL administriere ich seit dem Jahr 2000,
+remote per SSH.
+
+\textbf{Netzwerk und IT-Sicherheit:} Switches und VLANs habe ich mit Cisco, Aruba und HPE IMC
+konfiguriert, Firewalls von Fortinet (FortiGate) und Palo Alto installiert und Regelwerke
+gepflegt. Für Netzwerk-Monitoring und OT-Security habe ich SolarWinds Orion NPM und Claroty CTD
+eingeführt und die Trennung von IT-, OT- und Leitsystemnetzen umgesetzt. Audits, Change
+Requests und eine nachvollziehbare Dokumentation gehören für mich selbstverständlich dazu.
+
+\textbf{Automatisierung und Projekte:} Als ehemaliger Softwareentwickler automatisiere ich
+wiederkehrende Aufgaben mit Python und SQL, versioniere mit Git und betreue auch
+Legacy-Systeme (SCO Unix, Windows Server 2008) bis zur Migration. Neue Hardware- und
+Software-Projekte habe ich von der Anforderungsanalyse bis zur Inbetriebnahme geleitet. Als
+Diplom-Mathematiker und ehemaliger IHK-Prüfer für \emph{Geprüfte IT-Systemmanager} arbeite ich
+analytisch, strukturiert und selbstständig -- im Serverraum ebenso wie in der Abstimmung mit
+Fachabteilungen, Anwendern und externen Dienstleistern.
+
+Gerne möchte ich dieses Wissen in Ihr Team einbringen und Ihre IT-Infrastruktur
+stabil, sicher und zukunftsfähig weiterentwickeln.%
+\ifdefempty{\Eintritt}{}{ Für Sie stehe ich \Eintritt\ zur Verfügung.}%
+\ifdefempty{\Gehalt}{}{ Meine Gehaltsvorstellung liegt bei \Gehalt.}
+Über die Einladung zu einem persönlichen Gespräch freue ich mich sehr.
+
+Mit freundlichen Grüßen
+
+\vspace{1.0cm}
+Anton Rechenauer
+
+\vfill
+{\small\color{muted}\semibold Anlagen:\enspace\light Lebenslauf, Zeugnisse}
+
+\end{document}
