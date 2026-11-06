@@ -1,0 +1,174 @@
+% !TeX program = lualatex
+% Anschreiben (Deutsch), Stelle: Projektmanager / Anwendungssupport Warenwirtschaft OC-Karat
+% Design passend zu antonrechenauer_onepage_cv_admin.tex
+%
+% kompilieren:
+%   lualatex Anschreiben_OCKarat.tex
+
+% ---------------------------------------------------------------- Parameter (Standardwerte)
+% leer lassen = Zeile bzw. Satz entfällt
+\providecommand*{\Firma}{Motus Software GmbH}               % Anbieter von OC-Karat
+\providecommand*{\Abteilung}{Personalabteilung}
+\providecommand*{\Ansprechpartner}{}                       % z.\,B. Frau Erika Mustermann
+\providecommand*{\Strasse}{Kumpfmühler Str. 30}                               % Straße und Hausnummer
+\providecommand*{\Ort}{D-93051 Regensburg}
+\providecommand*{\Anrede}{Hallo liebes Motus Team,}
+\providecommand*{\Stelle}{Projektmanager im Anwendungssupport (m/w/d)}
+\providecommand*{\Referenz}{}                              % Kennziffer der Ausschreibung
+\providecommand*{\Quelle}{}                                % z.\,B. auf StepStone / auf Ihrer Karriereseite
+\providecommand*{\Eintritt}{}                              % z.\,B. zum 1.~Januar 2027
+\providecommand*{\Gehalt}{}                                % z.\,B. 65.000~€ brutto jährlich
+\providecommand*{\Datum}{\today}
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\setmainfont{Lato}[
+  Path           = /usr/share/fonts/truetype/lato/,
+  Extension      = .ttf,
+  UprightFont    = Lato-Regular,
+  BoldFont       = Lato-Bold,
+  ItalicFont     = Lato-Italic,
+  BoldItalicFont = Lato-BoldItalic,
+  FontFace       = {sb}{n}{Lato-Semibold},
+  FontFace       = {l}{n}{Lato-Light},
+  FontFace       = {k}{n}{Lato-Black},
+  Numbers        = Lining]
+\newcommand*{\semibold}{\fontseries{sb}\selectfont}
+\newcommand*{\light}{\fontseries{l}\selectfont}
+\newcommand*{\heavy}{\fontseries{k}\selectfont}
+
+\newlength{\bandheight}\setlength{\bandheight}{2.75cm}
+
+\usepackage[a4paper,top=3.6cm,bottom=1.2cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{band}{HTML}{16222E}
+\definecolor{accent}{HTML}{1E8C8A}
+\definecolor{ink}{HTML}{1C2530}
+\definecolor{muted}{HTML}{5E6A75}
+\definecolor{bandtext}{HTML}{B9C6D2}
+
+\hypersetup{
+  pdftitle    = {Anton Rechenauer -- Anschreiben \Stelle},
+  pdfauthor   = {Anton Rechenauer},
+  pdfsubject  = {Bewerbung als \Stelle\ bei \Firma},
+  pdfkeywords = {Projektmanager, Anwendungssupport, Warenwirtschaft, ERP,
+                 OC-Karat, MS SQL Server, MSSQL, T-SQL, Datenbankskripte,
+                 Datenmigration, ETL, Softwaretest, Anwenderschulung, Workshops,
+                 Supporttickets, Installation, Konfiguration, Projektmanagement,
+                 Key Account Management, Digitalisierung, Python, SAP Key-User},
+  pdflang     = {de-DE}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\linespread{1.07}
+\color{ink}
+
+% ---------------------------------------------------------------- Kopfband
+\AddToShipoutPictureBG*{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[band] (current page.north west) rectangle
+                ([yshift=-\bandheight]current page.north east);
+    \fill[accent] ([yshift=-\bandheight]current page.north west) rectangle
+                  ([yshift=-\bandheight-2.2pt]current page.north east);
+    \node[anchor=north west,inner sep=0pt,text width=17cm,align=left]
+      at ([xshift=2.5cm,yshift=-0.55cm]current page.north west) {%
+        {\fontsize{24}{26}\selectfont\color{white}\light Anton \heavy Rechenauer}\par
+        \vspace{4pt}
+        {\fontsize{11.5}{13}\selectfont\color{accent!55!white}\semibold
+          IT-Projekte \& Anwendungssupport\,\,{\color{bandtext}\light|}\,\,
+          {\light\color{bandtext} Datenbanken · Migration · Schulung}}\par
+        \vspace{6pt}
+        {\small\color{bandtext}
+          Silberne-Fisch-Gasse 16, 93047 Regensburg
+          \enspace{\color{accent}/}\enspace +49~1525~3612827
+          \enspace{\color{accent}/}\enspace \href{mailto:antonrechenauer@gmail.com}{antonrechenauer@gmail.com}}};
+  \end{tikzpicture}}
+
+% Zeile nur ausgeben, wenn der Parameter nicht leer ist
+\newcommand*{\optline}[1]{\ifdefempty{#1}{}{#1\\}}
+
+\begin{document}
+
+% ---------------------------------------------------------------- Empfänger + Datum
+{\footnotesize\color{muted}Anton Rechenauer · Silberne-Fisch-Gasse 16 · 93047 Regensburg}\par
+\vspace{2pt}
+\begin{minipage}[t]{0.6\textwidth}
+  \raggedright
+  {\semibold\Firma}\\
+  \optline{\Abteilung}%
+  \optline{\Ansprechpartner}%
+  \optline{\Strasse}%
+  \Ort
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+  \raggedleft
+  \vspace{0pt}\par
+  Regensburg, \Datum
+\end{minipage}
+
+\vspace{1.0cm}
+
+% ---------------------------------------------------------------- Betreff
+{\large\color{band}\heavy Bewerbung als \Stelle}\par
+\vspace{-0.4em}
+{\small\color{muted}%
+  \ifdefempty{\Referenz}{Warenwirtschaft OC-Karat · Datenmigration · MS SQL Server · Anwenderschulung}{Kennziffer: \Referenz}}\par
+
+\vspace{0.6em}
+
+% ---------------------------------------------------------------- Text
+\Anrede
+
+Sie schreiben, dass ein klassisches Anschreiben nicht sein muss -- deshalb hier kurz und
+persönlich, wer ich bin und warum ich gut zu Ihren Migrationsprojekten passe.%
+\ifdefempty{\Quelle}{}{ Auf Ihre Ausschreibung bin ich \Quelle\ aufmerksam geworden.}
+
+\textbf{Warenwirtschaft von beiden Seiten.} Ich bin gelernter Industriekaufmann und habe
+anschließend als Produktmanager in Produktionsplanung und Logistik gearbeitet. Später habe ich
+als Lead Developer selbst ein Warenwirtschaftssystem für ein produzierendes Unternehmen
+entwickelt -- inklusive Datenbankschema, Excel-Import und -Export. Ich weiß also, wie
+Anwender mit einer Warenwirtschaft arbeiten und wie es dahinter aussieht.
+
+\textbf{Daten von A nach B.} Datenmigration ist seit Jahren mein tägliches Brot: Ich habe
+ETL-Werkzeuge gebaut, die rund 100 verschiedene Dateien aus Excel, Primavera, MS Project und
+SQLite prüfen, bereinigen und in eine SQL-Datenbank importieren, und Berichte aus
+Alt-Abrechnungssystemen erzeugt, deren Datenstruktur erst einmal verstanden werden wollte.
+Mit MS SQL Server arbeite ich seit über 20~Jahren -- als Entwickler (.NET, T-SQL, Access VBA,
+Analysis Services) und zuletzt als Administrator in der Raffinerie von LyondellBasell, wo ich
+außerdem Software installiert, konfiguriert und Legacy-Systeme bis zur Ablösung betreut habe.
+
+\textbf{Menschen mitnehmen.} Ich war zwei Jahre Gymnasiallehrer für Mathematik und Physik,
+Dozent für Softwaretechnik und Mitglied im IHK-Prüfungsausschuss. Technische Themen
+verständlich zu erklären -- dem Lageristen ebenso wie der Geschäftsführung -- macht mir
+Freude. Als SAP-Key-User und Lead Scheduler für einen Anlagenstillstand mit einem Budget von
+100~Millionen Euro habe ich Anwender geschult, Arbeitsweisen hinterfragt, Workshops
+vorbereitet und das Projekt in Zeit und Budget abgeschlossen. Und beim Testen bin ich als
+Diplom-Mathematiker gern derjenige, der auch den letzten Randfall findet.
+
+In der Stapler- oder Baumaschinenbranche habe ich noch nicht gearbeitet -- aber in neue
+Fachdomänen habe ich mich immer schnell und gründlich eingearbeitet, zuletzt in die Welt von
+Raffinerie und Prozessleittechnik. Die Perspektive in Richtung Projektleitung und
+Key Account Management reizt mich besonders, und dass Sie in Regensburg sitzen, passt
+perfekt: Ich wohne hier.%
+\ifdefempty{\Eintritt}{}{ Für Sie stehe ich \Eintritt\ zur Verfügung.}%
+\ifdefempty{\Gehalt}{}{ Meine Gehaltsvorstellung liegt bei \Gehalt.}
+Ich freue mich darauf, Sie kennenzulernen!
+
+Mit freundlichen Grüßen
+
+\vspace{1.0cm}
+Anton Rechenauer
+
+\vfill
+{\small\color{muted}\semibold Anlagen:\enspace\light Lebenslauf, Zeugnisse}
+
+\end{document}
